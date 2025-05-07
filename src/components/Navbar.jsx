@@ -26,7 +26,7 @@ const Navbar = () => {
                 </div>
             </div>
             <div className='flex justify-center items-center space-x-10 py-4 font-bold'>
-                <Link to="/home" className='hover:underline'>
+                <Link to="/" className='hover:underline'>
                     Home
                 </Link>
                 <Link to="/shop" className='hover:underline'>
