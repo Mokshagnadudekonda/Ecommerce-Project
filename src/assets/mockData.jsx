@@ -40,9 +40,9 @@ export const mockData = [
     },
     {
         id: 4,
-        image: dove,
-        name: "Dove Shampoo",
-        price: 350
+        image: perfume,
+        name: "Perfume",
+        price: 750
     },
     {
         id: 5,
@@ -52,9 +52,9 @@ export const mockData = [
     },
     {
         id: 6,
-        image: perfume,
-        name: "Perfume",
-        price: 750
+        image: dove,
+        name: "Dove Shampoo",
+        price: 350
     },
     {
         id: 7,
