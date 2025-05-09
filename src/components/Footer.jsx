@@ -11,7 +11,7 @@ const Footer = () => {
                     <p className='mt-4'>Your One-step for all your needs. Shop with us and experience the best online shopping experience</p>
                 </div>
                 <div className='flex flex-col md:items-center'>
-                    <h2 className='text-xl font-semibold'>Quick Links</h2>
+                    <h2 className='text-xl font-semibold mt-3 lg:mt-0'>Quick Links</h2>
                     <ul className='mt-4 space-y-2'>
                         <li>
                             <Link to="/" className='hover:underline'>Home</Link>
@@ -28,14 +28,14 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div>
-                    <h2 className='text-xl font-semibold'>Follow Us</h2>
+                    <h2 className='text-xl font-semibold mt-3 lg:mt-0'>Follow Us</h2>
                     <div className='flex mt-4 space-x-4 text-xl'>
                         <a href="https://www.instagram.com/mokshagna_08/?next=%2F" className='text-red-500'><FaInstagram /></a>
                         <a href="https://x.com/DudekondaMoksh1" className='text-blue-500'><FaTwitter /></a>
                         <a href="https://github.com/Mokshagnadudekonda" className='text-white'><FaGithub /></a>
                         <a href="https://www.linkedin.com/in/mokshagna-dudekonda-4b1384320/" className='text-blue-500'><FaLinkedinIn /></a>
                     </div>
-                    <form className='flex items-center mt-6'>
+                    <form className='flex items-center mt-6 '>
                         <input type="email" placeholder='Enter Email' className='w-full p-2 rounded-l-lg bg-gray-800 border border-gray-600' />
                         <button className='bg-red-500 text-white rounded-r-lg py-2 px-4'>Subscribe</button>
                     </form>
