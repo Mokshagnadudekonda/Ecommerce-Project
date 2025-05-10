@@ -4,6 +4,7 @@ import emptyCart from '../assets/images/empty-cart.png'
 import { FaTrashAlt } from 'react-icons/fa';
 import Modal from '../components/Modal';
 import { decreaseQuantity, increaseQuantity, removeFromCart } from '../Redux-toolkit/cartSlice';
+import { useNavigate } from 'react-router-dom';
 
 
 const Cart = () => {
@@ -11,14 +12,15 @@ const Cart = () => {
     const [address, setAddress] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     return (
         <div className='container mx-auto py-8 min-h-96 px-4 md:px-16 lg:px-24'>
             {
                 cart.products.length > 0 ?
                     <div>
                         <h3 className='text-2xl font-semibold mb-4'>SHOPPING CART</h3>
-                        <div className='md:grid md:grid-cols-2 md:gap-10 mt-8'>
-                            <div className='mr-0 md:mr-10'>
+                        <div className='flex flex-col md:flex-row justify-between space-x-10 mt-8'>
+                            <div className='md:w-2/3'>
                                 <div className='flex justify-between border-b items-center mb-4 text-xs font-bold'>
                                     <p>PRODUCTS</p>
                                     <div className='flex space-x-6 md:space-x-11'>
@@ -57,7 +59,7 @@ const Cart = () => {
                                     }
                                 </div>
                             </div>
-                            <div className='md:w-1/2 bg-white p-6 rounded-lg shadow-md border'>
+                            <div className='md:w-1/3 bg-white p-6 rounded-lg shadow-md border'>
                                 <h3 className='text-sm font-semibold mb-5'>CART TOTAL</h3>
                                 <div className='flex justify-between mb-5 border-b pb-1'>
                                     <span className='text-sm'>TOTAL ITEMS:</span>
@@ -74,7 +76,7 @@ const Cart = () => {
                                     <span>Total Price:</span>
                                     <span>&#8377; {cart.totalPrice.toFixed(2)}</span>
                                 </div>
-                                <button className='w-full bg-green-500 text-white py-2 hover:bg-green-700 rounded-sm'>
+                                <button className='w-full bg-green-500 text-white py-2 hover:bg-green-600 rounded-sm ' onClick={() => navigate("/checkOut")}>
                                     Proceed to checkout
                                 </button>
                             </div>
