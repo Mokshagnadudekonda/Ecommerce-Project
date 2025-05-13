@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-const CheckOutPage = () => {
+const CheckOutPage = ({ setOrder }) => {
     const [billingToggle, setBillingToggle] = useState(true);
     const [shippingToggle, setShippingToggle] = useState(false);
     const [paymentToggle, setPaymentToggle] = useState(false);
@@ -13,6 +14,22 @@ const CheckOutPage = () => {
         city: "",
         zip: ""
     })
+    const navigate = useNavigate();
+
+    const handleOrder = () => {
+        const randomOrderNumber = Math.floor(Math.random() * 999999) + 1;
+
+        const newOrder = {
+            products: cart.products,
+            orderNumber: randomOrderNumber.toString().padStart(6, '0'),
+            shippingInformation: shippingInfo,
+            totalPrice: cart.totalPrice
+        };
+
+        setOrder(newOrder);
+        navigate("/order-conformation");
+    };
+
     return (
         <div className='container mx-auto py-8 min-h-96 px-4 md:px-16 lg:px-24'>
             <h3 className='text-2xl font-semibold mb-4'>CHECKOUT</h3>
@@ -36,7 +53,7 @@ const CheckOutPage = () => {
                             </div>
                             <div>
                                 <label htmlFor="" className='block text-gray-700'>Phone</label>
-                                <input type="text" name='phone' placeholder='Enter Number' className='w-full px-3 py-2 border' />
+                                <input type="text" name='phone' placeholder='Enter Phone Number' className='w-full px-3 py-2 border' />
                             </div>
                         </div>
                     </div>
@@ -137,7 +154,7 @@ const CheckOutPage = () => {
                             <span className='font-semibold'>&#8377; {cart.totalPrice.toFixed(2)}</span>
                         </div>
                     </div>
-                    <button className='w-full bg-green-500 text-white py-2 mt-6 hover:bg-green-600 rounded-sm'>Place Order</button>
+                    <button className='w-full bg-green-500 text-white py-2 mt-6 hover:bg-green-600 rounded-sm' onClick={handleOrder}>Place Order</button>
                 </div>
             </div>
         </div>

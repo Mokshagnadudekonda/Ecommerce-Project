@@ -5,6 +5,8 @@ import { FaTrashAlt } from 'react-icons/fa';
 import Modal from '../components/Modal';
 import { decreaseQuantity, increaseQuantity, removeFromCart } from '../Redux-toolkit/cartSlice';
 import { useNavigate } from 'react-router-dom';
+import ChangeAddress from '../components/ChangeAddress';
+
 
 
 const Cart = () => {
@@ -81,7 +83,9 @@ const Cart = () => {
                                 </button>
                             </div>
                         </div>
-                        <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} setAddress={setAddress}></Modal>
+                        <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+                            <ChangeAddress setAddress={setAddress} setIsModalOpen={setIsModalOpen} />
+                        </Modal>
                     </div>
                     : <div className='flex justify-center'>
                         <img src={emptyCart} alt="" className='h-96 bg-white' />
